@@ -53,10 +53,10 @@ $(document).on('ready', function () {
         console.log('valid');
         name = $('#inputName').val().trim();
         destination = $('#inputDestination').val().trim();
-        firstTrainTime = $('#inputFirstTime').val().trim();
-        // firstTrainHour = $('#inputHour').val().trim();
-        // firstTrainMin = $('#inputMin').val().trim();
-        // // firstTrainTime = firstTrainHour + ":" + firstTrainMin;
+        // firstTrainTime = $('#inputFirstTime').val().trim();
+        firstTrainHour = $('#inputHour').val();
+        firstTrainMinute = $('#inputMinute').val();
+        firstTrainTime = firstTrainHour + ":" + firstTrainMinute;
         console.log(firstTrainTime);
         frequency = $('#inputFrequency').val().trim();
 
@@ -69,7 +69,9 @@ $(document).on('ready', function () {
         });
         $('#inputName').val('');
         $('#inputDestination').val('');
-        $('#inputFirstTime').val('');
+        // $('#inputFirstTime').val('');
+        $('#inputHour').val('');
+        $('#inputMinute').val('');
         $('#inputFrequency').val('');
         return false;
       }

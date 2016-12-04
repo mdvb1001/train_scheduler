@@ -1,0 +1,11 @@
+#inputHour {
+	width: 65px;
+}
+
+#inputMinute {
+	width: 65px;
+}
+
+.military {
+	display: inline;
+}
