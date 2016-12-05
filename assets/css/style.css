@@ -1,3 +1,13 @@
+body {
+	/*background-image: url("../images/orientExpress.jpg");*/
+}
+
+.main-title {
+	padding: 20px;
+	/*background: rgba(1000, 1000, 1000, 0.5); 
+	background-image: url("../images/orientExpress.jpg");*/
+}
+
 #inputHour {
 	width: 65px;
 }
@@ -9,3 +19,20 @@
 .military {
 	display: inline;
 }
+
+#inputName {
+	width: 100%;
+}
+
+#inputDestination {
+	width: 100%;
+}
+
+#inputFrequency {
+	width: 100%;
+}
+
+.all-inputs {
+	width: 50%;
+}
+

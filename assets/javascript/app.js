@@ -76,7 +76,6 @@ $(document).on('ready', function () {
         return false;
       }
     });
-    //freq * the 5th train + the initial time = next train
     database.ref().on("child_added", function (childSnapshot) {
         
         // First Time (pushed back 1 year to make sure it comes before current time)
