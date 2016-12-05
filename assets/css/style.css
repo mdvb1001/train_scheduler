@@ -1,11 +1,16 @@
 body {
-	/*background-image: url("../images/orientExpress.jpg");*/
+	background-image: url("../images/memphis-rail.jpg");
 }
 
 .main-title {
 	padding: 20px;
-	/*background: rgba(1000, 1000, 1000, 0.5); 
-	background-image: url("../images/orientExpress.jpg");*/
+	background: rgba(1, 1, 1, 0.5); 
+	color: black;
+	/*background-image: url("../images/orientExpress.jpg");*/
+}
+
+.text-lead {
+	font-weight: bold;
 }
 
 #inputHour {
@@ -36,3 +41,10 @@ body {
 	width: 50%;
 }
 
+.table-fluid{
+	width: 100%;
+}
+
+td {
+	height: 30px;	
+}
