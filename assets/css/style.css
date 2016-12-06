@@ -4,8 +4,8 @@ body {
 
 .main-title {
 	padding: 20px;
-	background: rgba(1, 1, 1, 0.5); 
-	color: black;
+	background: rgba(1, 1, 1, .60); 
+	color: white;
 	/*background-image: url("../images/orientExpress.jpg");*/
 }
 
@@ -45,6 +45,3 @@ body {
 	width: 100%;
 }
 
-td {
-	height: 30px;	
-}
