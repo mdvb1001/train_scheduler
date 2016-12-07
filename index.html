@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js" integrity="sha256-cPV18mnKeXm349/LJ+fcY51Ts2ygt+cWpZCzc3YzEus=" crossorigin="anonymous"></script>
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <div class="jumbotron main-title">
         <h1>Train Scheduler</h1>
@@ -22,7 +23,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="panel panel-primary">
+      <div class="panel all-info">
         <div class="panel-heading">
           <h3 class="panel-title">Current Trains</h3>
         </div>
@@ -45,7 +46,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="panel panel-primary all-inputs">
+      <div class="panel all-inputs">
         <div class="panel-heading">
           <h3 class="panel-title">Add Train</h3>
         </div>
@@ -81,7 +82,7 @@
               </div>
               <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                  <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                  <button id="submit" type="submit" class="btn btn-default">Submit</button>
                 </div>
               </div>
             </fieldset>
