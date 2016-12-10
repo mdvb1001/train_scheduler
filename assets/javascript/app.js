@@ -11,6 +11,7 @@
 	PHASE 2 - Get Firebase working on basic level
 
 */
+// initial setup for firebase database 
 var config = {
     apiKey: "AIzaSyA7GxLKi8V3D-CBZJhTw2NazOWYoGY41l8",
     authDomain: "train-scheduler-b7e2c.firebaseapp.com",
@@ -18,9 +19,13 @@ var config = {
     storageBucket: "train-scheduler-b7e2c.appspot.com",
     messagingSenderId: "1016520910023"
 };
+// initializing firebase
 firebase.initializeApp(config);
+// data shortcut
 var database = firebase.database();
+// name for train 
 var name = "";
+// destination for train
 var destination = "";
 
 // Assumptions
@@ -40,26 +45,26 @@ var tMinutesTillTrain = "";
 // Next Train
 var nextTrainTime = "";
 
-
-// var numberOfTrainsSinceFirstTrain = ((startTime - currentTime) % frequency);
-// var nexTrainTime = (frequency * numberOfTrainsSinceFirstTrain) + firstTrainTime;
-// var startTime = moment(firstTrainTime, 'hh:mm a');
-// var startTime = moment("12:16 am", 'hh:mm a');
-// var endTime = moment("06:12 pm", 'hh:mm a');
-//     endTime.diff(startTime, 'minutes');
+// when page first loads up...  
 $(document).on('ready', function () {
+    // when click on submit button 
     $('#submit').on('click', function () {
+        // this checks the validity of inputs 
       if ($('.form-horizontal').get(0).checkValidity()) {
         console.log('valid');
+        // adds the value of name from input 
         name = $('#inputName').val().trim();
+        // adds the value of destination from input 
         destination = $('#inputDestination').val().trim();
-        // firstTrainTime = $('#inputFirstTime').val().trim();
+        // adds the value of Hour from input
         firstTrainHour = $('#inputHour').val();
+        // adds the value of Minute from input
         firstTrainMinute = $('#inputMinute').val();
+        // join Hour and Minute together 
         firstTrainTime = firstTrainHour + ":" + firstTrainMinute;
-        console.log(firstTrainTime);
+        // add the value of Frequency from input
         frequency = $('#inputFrequency').val().trim();
-
+        // pushes the inputs to firebase in respective keys
         database.ref().push({
             name: name,
             destination: destination,
@@ -67,15 +72,16 @@ $(document).on('ready', function () {
             frequency: frequency,
             dateAdded: firebase.database.ServerValue.TIMESTAMP
         });
+        // Empties all inputs of value 
         $('#inputName').val('');
         $('#inputDestination').val('');
-        // $('#inputFirstTime').val('');
         $('#inputHour').val('');
         $('#inputMinute').val('');
         $('#inputFrequency').val('');
         return false;
       }
     });
+    // Get data for each child added 
     database.ref().on("child_added", function (childSnapshot) {
         
         // First Time (pushed back 1 year to make sure it comes before current time)
@@ -102,17 +108,23 @@ $(document).on('ready', function () {
         var nextTrainTime = moment().add(tMinutesTillTrain, "minutes").format("HH:mm");
         // console.log("ARRIVAL TIME: " + moment(nextTrainTime).format("HH:mm"));
 
+        // Dynamic table row 
         var tableRow = $('<tr>');
+        // Add cell for name
         var nameCell = $('<td>').text(childSnapshot.val().name);
+        // Add cell for destination 
         var destinationCell = $('<td>').text(childSnapshot.val().destination);
+        // Add cell for frequency
         var frequencyCell = $('<td>').text(childSnapshot.val().frequency);
+        // Add cell for firstTrainTime
         var firstTrainTimeCell = $('<td>').text(childSnapshot.val().firstTrainTime);
+        // Add cell for netTrainTime
         var nextTrainTimeCell = $('<td>').text(nextTrainTime);
+        // Add cell for tMinutesTillTrain
         var tMinutesTillTrainCell = $('<td>').text(tMinutesTillTrain);
-        // moment().add(1, 'hours').diff(moment(), 'minutes')
-        // moment().diff(moment(childSnapshot.val().firstTrainTime), "minutes");
-        
+        // Append cells to table row
         tableRow.append(nameCell).append(destinationCell).append(frequencyCell).append(firstTrainTimeCell).append(nextTrainTimeCell).append(tMinutesTillTrainCell);
+        // Append table row to table body
         $('tbody').append(tableRow);
     });
 });
